@@ -135,7 +135,7 @@ class _AmountContainerState extends State<AmountContainer> {
                           color: Shoptext),
                     ),
                     Text(
-                      "${(int.parse(widget.price) * (int.parse(widget.count)) + int.parse(widget.shipping) + int.parse(widget.tax))}",
+                      "${(int.parse(widget.price) * int.parse(widget.count)) + int.parse(widget.shipping) + int.parse(widget.tax)}",
                       style: TextStyle(
                           fontSize: 18,
                           fontWeight: FontWeight.w500,
