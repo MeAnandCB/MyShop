@@ -2,13 +2,19 @@ import 'package:flutter/material.dart';
 
 import '../../../Const/Colors.dart';
 
-class SizeContainer extends StatelessWidget {
+class SizeContainer extends StatefulWidget {
   final String size;
-  const SizeContainer({super.key, required this.size});
+
+  SizeContainer({super.key, required this.size});
 
   @override
+  State<SizeContainer> createState() => _SizeContainerState();
+}
+
+class _SizeContainerState extends State<SizeContainer> {
+  @override
   Widget build(BuildContext context) {
-    return (size == "31")
+    return (widget.size == "31")
         ? Container(
             height: 35,
             width: 50,
@@ -18,7 +24,7 @@ class SizeContainer extends StatelessWidget {
             ),
             child: Center(
                 child: Text(
-              size,
+              widget.size,
               style:
                   TextStyle(color: ShopBackground, fontWeight: FontWeight.w500),
             )),
@@ -32,7 +38,7 @@ class SizeContainer extends StatelessWidget {
             ),
             child: Center(
                 child: Text(
-              size,
+              widget.size,
               style: TextStyle(color: ShopButton, fontWeight: FontWeight.w500),
             )),
           );
@@ -44,6 +50,7 @@ class ContaSize extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    var currentindex = 0;
     return Row(
       children: [
         SizeContainer(

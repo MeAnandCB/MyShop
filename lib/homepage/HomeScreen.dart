@@ -6,7 +6,16 @@ import '../Screens/HomeScreen/detailsGridView.dart';
 import '../Screens/HomeScreen/tab.dart';
 import '../Screens/HomeScreen/topslideContainer.dart';
 
-class HomePage extends StatelessWidget {
+class HomePage extends StatefulWidget {
+  @override
+  State<HomePage> createState() => _HomePageState();
+}
+
+class _HomePageState extends State<HomePage> {
+  bool click = true;
+  bool click1 = true;
+  bool click2 = true;
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -102,30 +111,69 @@ class HomePage extends StatelessWidget {
               Row(
                 children: [
                   Expanded(
-                    child: Customtab(
-                      iconname: Icons.favorite_border,
-                      name: "Trending",
-                      value: false,
+                    child: InkWell(
+                      onTap: () {
+                        setState(() {
+                          click = !click;
+                        });
+                      },
+                      child: (click == false)
+                          ? Customtab(
+                              iconname: Icons.favorite_border,
+                              name: "Trending",
+                              value: false,
+                            )
+                          : Customtab(
+                              iconname: Icons.favorite_border,
+                              name: "Trending",
+                              value: true,
+                            ),
                     ),
                   ),
                   SizedBox(
                     width: 15,
                   ),
                   Expanded(
-                    child: Customtab(
-                      iconname: Icons.sports_soccer_outlined,
-                      name: "All new ",
-                      value: true,
+                    child: InkWell(
+                      onTap: () {
+                        setState(() {
+                          click1 = !click1;
+                        });
+                      },
+                      child: (click1 == false)
+                          ? Customtab(
+                              iconname: Icons.sports_soccer_outlined,
+                              name: "All new ",
+                              value: true,
+                            )
+                          : Customtab(
+                              iconname: Icons.sports_soccer_outlined,
+                              name: "All new ",
+                              value: false,
+                            ),
                     ),
                   ),
                   SizedBox(
                     width: 15,
                   ),
                   Expanded(
-                    child: Customtab(
-                      iconname: Icons.note_alt_outlined,
-                      name: "Lifestyle",
-                      value: false,
+                    child: InkWell(
+                      onTap: () {
+                        setState(() {
+                          click2 = !click2;
+                        });
+                      },
+                      child: (click2 == false)
+                          ? Customtab(
+                              iconname: Icons.note_alt_outlined,
+                              name: "Lifestyle",
+                              value: true,
+                            )
+                          : Customtab(
+                              iconname: Icons.note_alt_outlined,
+                              name: "Lifestyle",
+                              value: false,
+                            ),
                     ),
                   ),
                 ],
